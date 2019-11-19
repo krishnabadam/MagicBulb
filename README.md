@@ -1,0 +1,2 @@
+# MagicBulb
+Bluetooth WebAPIs demonstration
