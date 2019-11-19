@@ -1,0 +1,105 @@
+<html>
+<head>
+	<script src="js/magicblue.js"></script>
+	<link rel="stylesheet" href="bulb.css">
+</head>
+
+<body onload="prepare()" style="background-color:#e7feff; text-align:center;
+		margin:0px">
+	<div class="banner">
+		<h1 style="font-family: futura; font-size:30px; font-weight:
+			bold;text-align:left;color:white;">Web Bluetooth &nbsp - &nbsp
+			<span class="rndcolor">Magic Bulb</span>
+		</h1>
+	</div>
+	<div style="width:100%; text-align:center">
+		<button id="btn_scan" style="font-size:25px"class="btn" 
+				onclick="discoverDevicesOrDisconnect()">Discover MagicBulbs</button>
+
+		<table border="1" style="width:50%; margin:20px auto;
+			background-color:#8737ff; color:white;text-align:center">
+			<tr>
+				<td>
+					<b>Connected</b>
+				</td>
+				<td>
+					<b>Service Discovery Completed</b>
+				</td>
+				<td>
+					<b>Notifications</b>
+				</td>
+			</tr>
+			<tr>
+					<td id="status_connected"><i>false</i></td>
+					<td id="status_discovered"><i>false</i></td>
+					<td id="status_notifications"><i>false</i></td>
+			</tr>
+		</table>
+	</div>
+	<div style="width:100%; margin:20px 0px; text-align:center">
+		<embed id ="bulb_img" src="lightbulb-solid.svg" style="margin:0 auto"
+				height="300px" width="300px"/>
+		</br>
+		<input type="button" id="btn_bulb_on_off" style="margin:20px auto; padding:0px 30px;
+				font-size:20px; color:#8737ff; width:150px" value="ON" class="on"
+				onclick="toggleState(this.id)">
+	</div>
+
+	<h2 style="text-align:left"> <span style="font-family:futura;font-size:25px;
+		font-weight: bold;color:#8737ff">Choose Hue</span>
+	</h2>
+
+	<p style="font-size:20px; font-weight: bold;display:inline;color:#8737ff">
+		Randomise Bulb Colour
+	</p>
+
+	<input type="button" id="btn_rnd_color" style="margin:0px auto;
+		padding:0px 30px; font-size:20px; color:#8737ff;width:100px" value="ON" 
+		class="on" onclick="toggleState(this.id)">
+	</br>
+	<div id="manual_color_edit" style="display:inline">
+	<input id="bulb_clr_picker" style="width:200px; height:30px;margin:20px 0 0;
+		padding:5px  5 5px;" type="color" value="#8a1cef">
+	<button type="button" style="width:150px; height:30px;margin:0px 0 0px;
+		padding:0px  0 0px;text-align:center" onclick="changeBulbColorPicker()">
+		Apply the Colour
+	</button>
+
+	<table class="w3-table w3-border" style="margin:30px auto;width:100%;
+		text-align:center">
+		<tr>
+			<th>Red</th>
+			<th>Green</th>
+			<th>Blue</th>
+		</tr>
+		<tr>
+			<td id="valRed" >138</td>
+			<td id="valGreen">28</td>
+			<td id="valBlue">239</td>
+		</tr>
+		<tr>
+			<td id="red" style="height:25px;background-color:red"></td>
+			<td id="green" style="background-color:green"></td>
+			<td id="blue" style="background-color:blue"></td>
+		</tr>
+		<tr>
+			<td>
+				<input value = "138" oninput="inputRed(this.value)" 
+					onchange="changeRed(this.value)" type="range" id="slideRed"
+					name="slideRed" min="0" max="255">
+			</td>
+			<td>
+				<input value = "28" oninput="inputGreen(this.value)"
+					onchange="changeGreen(this.value)" type="range"
+					id="slideGreen" name="slideGreen" min="0" max="255">
+			</td>
+			<td>
+				<input value = "239" oninput="inputBlue(this.value)"
+					onchange="changeBlue(this.value)" type="range"
+					id="slideBlue" name="slideBlue" min="0" max="255">
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
